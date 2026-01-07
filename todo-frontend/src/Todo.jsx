@@ -62,10 +62,10 @@ function Todo() {
             <div className="column">
                 <h3>Add item</h3>
                 {message && <p className="text-success">{message}</p>}
-                <div className="form-group d-flex gap-2">
-                    <input type="text" className="form-control" placeholder="Title" value={title} onChange={(e) => { setTitle(e.target.value) }} />
-                    <input type="text" className="form-control" placeholder="Description" value={description} onChange={(e) => { sestDescription(e.target.value) }} />
-                    <button className="btn btn-dark" onClick={handlesubmit}>Submit</button>
+                <div className="form-group d-flex px-2">
+                    <input type="text" className="form-control mr-3" placeholder="Title" value={title} onChange={(e) => { setTitle(e.target.value) }} />
+                    <input type="text" className="form-control mr-2" placeholder="Description" value={description} onChange={(e) => { sestDescription(e.target.value) }} />
+                    <button className="btn btn-dark ml-2" onClick={handlesubmit}>Submit</button>
                 </div>
                 {error && <p className="text-danger">{error}</p>}
             </div>
@@ -74,16 +74,19 @@ function Todo() {
             <div className="column mt-3">
                 <h3>Tasks</h3>
                 <ul className="list-group">
-                    <li className="list-group-item d-flex bg-info justify-content-between align-items-center my-2">
-                        <div className="d-flex flex-column">
-                            <span className="font-weight-bold">Item Text</span>
-                            <span>Descripyion</span>
-                        </div>
-                        <div className="d-flex px-2">
-                            <button className=" btn btn-warning mr-2">Edit</button>
-                            <button className="btn btn-danger">Delete</button>
-                        </div>
-                    </li>
+                    {todos.map((item) => (
+                        <li key={item._id} className="list-group-item d-flex bg-info justify-content-between align-items-center my-2">
+                            <div className="d-flex flex-column">
+                                <span className="font-weight-bold">{item.title}</span>
+                                <span>{item.description}</span>
+                            </div>
+                            <div className="d-flex px-2">
+                                <button className=" btn btn-warning mr-2">Edit</button>
+                                <button className="btn btn-danger">Delete</button>
+                            </div>
+                        </li>
+                    ))}
+
                 </ul>
             </div>
         </>
