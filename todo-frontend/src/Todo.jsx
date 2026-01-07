@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function Todo() {
     const [title, setTitle] = useState("");
@@ -40,11 +40,25 @@ function Todo() {
         }
     }
 
+    useEffect(() => {
+        getitems();
+    }, [])
+
+    function getitems() {
+        fetch(apiURL + "/todos")
+            .then((res) => res.json())
+            .then((res) => {
+                setTodos(res)
+            })
+    }
+
     return (
         <>
             <div className="row p-3 bg-success text-light mb-4">
                 <h1>ToDo App</h1>
             </div>
+
+            {/* creating item  */}
             <div className="column">
                 <h3>Add item</h3>
                 {message && <p className="text-success">{message}</p>}
@@ -56,6 +70,7 @@ function Todo() {
                 {error && <p className="text-danger">{error}</p>}
             </div>
 
+            {/* getting items  */}
             <div className="column mt-3">
                 <h3>Tasks</h3>
                 <ul className="list-group">
