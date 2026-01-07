@@ -3,6 +3,8 @@ import { useState } from "react"
 function Todo() {
     const [title, setTitle] = useState("");
     const [description, sestDescription] = useState("");
+    const [todos, setTodos] = useState([]);
+    const apiURL = "http://localhost:8000";
 
     function handlesubmit() {
 
