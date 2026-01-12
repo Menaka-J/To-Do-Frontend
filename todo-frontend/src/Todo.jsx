@@ -22,7 +22,7 @@ function Todo() {
         setsError("");
         //check inputs
         if (title.trim() != "" && description.trim() != "") {
-            fetch(apiURL + "/todos", {
+            fetch(`${apiURL}/todos`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -56,7 +56,7 @@ function Todo() {
     }, [])
 
     function getitems() {
-        fetch(apiURL + "/todos")
+        fetch(`${apiURL}/todos`)
             .then((res) => res.json())
             .then((res) => {
                 setTodos(res)
@@ -75,7 +75,7 @@ function Todo() {
         setsError("");
         //check inputs
         if (editTitle.trim() != "" && editDesc.trim() != "") {
-            fetch(apiURL + "/todos/" + editid, {
+            fetch(`${apiURL}/todos/${editid}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -113,7 +113,7 @@ function Todo() {
     //deleting item
     function handledelete(itemid) {
         if (window.confirm("You want to delete task?")) {
-            fetch(apiURL + "/todos/" + itemid, {
+            fetch(`${apiURL}/todos/${itemid}`, {
                 method: "DELETE"
             })
                 .then(() => {
