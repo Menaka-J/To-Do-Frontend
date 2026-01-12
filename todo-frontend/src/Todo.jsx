@@ -11,7 +11,7 @@ function Todo() {
     const [editTitle, setEdittitle] = useState("");
     const [editDesc, setEditdesc] = useState("");
 
-    const apiURL = "http://localhost:8000";
+    const apiURL = "https://to-do-backend-37hr.onrender.com";
 
     //===========================================================================================
     //function for adding item
