@@ -39,5 +39,4 @@ This app allows users to **create, view, update, and delete tasks**, with persis
 
 ---
 
-## 🧱 System Architecture
 
