@@ -11,7 +11,9 @@ function Todo() {
     const [editTitle, setEdittitle] = useState("");
     const [editDesc, setEditdesc] = useState("");
 
-    const apiURL = "https://to-do-backend-37hr.onrender.com";
+    // const apiURL = "https://to-do-backend-37hr.onrender.com";
+    const apiURL = import.meta.env.VITE_API_URL;
+
 
     //===========================================================================================
     //function for adding item
@@ -189,7 +191,7 @@ function Todo() {
                     </ul>
                 </div>
             </div>
- 
+
         </>
     )
 }
